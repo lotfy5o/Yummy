@@ -1,5 +1,7 @@
 @extends('theme.master')
 
+@section('recipe-active', 'active')
+
 @section('content')
 <!-- Single Recipe Section Begin -->
 <section class="single-page-recipe spad">

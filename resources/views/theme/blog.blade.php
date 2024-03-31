@@ -1,5 +1,7 @@
 @extends('theme.master')
 
+@section('blog-active', 'active')
+
 @section('content')
 <!-- Blog Section Begin -->
 <section class="blog-section spad">

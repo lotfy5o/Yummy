@@ -1,4 +1,7 @@
 @extends('theme.master')
+
+@section('category-active', 'active')
+
 @section('content')
 <!-- Recipe Section Begin -->
 <section class="recipe-section spad">

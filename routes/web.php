@@ -21,19 +21,20 @@ Route::controller(ThemeController::class)->name('Theme.')->group(function () {
     Route::get('/category', 'category')->name('category');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/about', 'about')->name('about');
+    Route::get('/recipe', 'recipe')->name('recipe');
 });
 
-Route::view('/blog', 'theme.blog');
-Route::view('/recipe', 'theme.recipe');
+Route::view('/blog', 'theme.blog')->name('theme.blog');
+// Route::view('/recipe', 'theme.recipe');
 
 
 
 
 
 
-Route::get('/', function () {
-    return view('theme/index');
-});
+// Route::get('/', function () {
+//     return view('theme/index');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');

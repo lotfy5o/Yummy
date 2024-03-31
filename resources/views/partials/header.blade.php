@@ -6,19 +6,14 @@
         <div class="nav-menu">
             <nav class="main-menu mobile-menu">
                 <ul>
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Pages</a>
-                        <ul class="sub-menu">
-                            <li><a href="about-me.html">About Me</a></li>
-                            <li><a href="categories.html">Categories</a></li>
-                            <li><a href="recipe.html">Recipe</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
+                    {{-- index doesn't extends from master so I can't use @yield('home-active') --}}
+                    <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ route('Theme.index') }}">Home</a>
                     </li>
-                    <li><a href="recipe.html">Recipes</a></li>
-                    <li><a href="categories.html">Best Of</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li class="@yield('category-active')"><a href="{{ route('Theme.category') }}">Categories</a></li>
+                    <li class="@yield('recipe-active')"><a href="{{ route('Theme.recipe') }}">Recipes</a></li>
+                    <li class="@yield('blog-active')"><a href="{{ route('theme.blog') }}">Blogs</a></li>
+                    <li class="@yield('contact-active')"><a href="{{ route('Theme.contact') }}">Contact</a></li>
+                    <li class="@yield('about-active')"><a href="{{ route('Theme.about') }}">About Me</a></li>
                 </ul>
             </nav>
             <div class="nav-right search-switch">

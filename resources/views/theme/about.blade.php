@@ -1,6 +1,9 @@
 @extends('theme.master')
 
+@section('about-active', 'active')
+
 @section('content')
+
 
 <!-- About Me Section Begin -->
 <section class="about-me spad">

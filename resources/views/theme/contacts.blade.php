@@ -1,5 +1,6 @@
 @extends('theme.master')
 
+@section('contact-active', 'active')
 
 @section('content')
 <!-- Contact Section Begin -->
