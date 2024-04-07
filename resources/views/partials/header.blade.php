@@ -14,6 +14,22 @@
                     <li class="@yield('blog-active')"><a href="{{ route('theme.blog') }}">Blogs</a></li>
                     <li class="@yield('contact-active')"><a href="{{ route('Theme.contact') }}">Contact</a></li>
                     <li class="@yield('about-active')"><a href="{{ route('Theme.about') }}">About Me</a></li>
+                    <li class="">
+                        @if(!Auth::check())
+                        <a href="{{ route('register') }}">Login / Register</a>
+                        @else
+                        <a href="#">{{ Auth::user()->name }}</a>
+                        <ul class="sub-menu">
+                            <li><a href="blog.html">My Blogs</a></li>
+                            <li><a href="blog.html">My Recipes</a></li>
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-link nav-link"
+                                    style="color: black; font-weight: bold;">Logout</button>
+                            </form>
+                        </ul>
+                        @endif
+                    </li>
                 </ul>
             </nav>
             <div class="nav-right search-switch">

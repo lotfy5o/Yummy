@@ -14,10 +14,17 @@
                 </div>
             </div>
             <div class="col-lg-6 offset-lg-1">
-                <form action="#" class="subscribe-form">
+                <form action="{{ route('Subscriber.store') }}" class="subscribe-form" method="POST">
+                    @csrf
                     <h3>Subscribe to our newsletter</h3>
-                    <input type="email" placeholder="Your e-mail">
+                    @if (session('subscriberStatus'))
+                    <div class="alert alert-success">
+                        {{ session('subscriberStatus') }}
+                    </div>
+                    @endif
+                    <input type="email" placeholder="Your e-mail" name="email">
                     <button type="submit">Subscribe</button>
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </form>
                 <div class="social-links">
                     <a href="#"><i class="fa fa-instagram"></i><span>Instagram</span></a>

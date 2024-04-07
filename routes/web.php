@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ThemeController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,9 +26,13 @@ Route::controller(ThemeController::class)->name('Theme.')->group(function () {
 });
 
 Route::view('/blog', 'theme.blog')->name('theme.blog');
+Route::view('/reg', 'theme.register')->name('theme.register');
 // Route::view('/recipe', 'theme.recipe');
 
 
+// Subscriber Routes
+
+Route::post('/subscriber/store', [SubscriberController::class, 'store'])->name('Subscriber.store');
 
 
 
@@ -36,9 +41,9 @@ Route::view('/blog', 'theme.blog')->name('theme.blog');
 //     return view('theme/index');
 // });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
