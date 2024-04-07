@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ThemeController;
@@ -35,7 +36,8 @@ Route::view('/reg', 'theme.register')->name('theme.register');
 Route::post('/subscriber/store', [SubscriberController::class, 'store'])->name('Subscriber.store');
 
 
-
+// Contact routes
+Route::post('/contact-us/store', [ContactController::class, 'store'])->name('contact-us.store');
 
 // Route::get('/', function () {
 //     return view('theme/index');

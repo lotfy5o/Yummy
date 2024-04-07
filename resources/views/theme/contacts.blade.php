@@ -8,18 +8,30 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <form action="#" class="contact-form">
-                    <h3>Leave a Comment</h3>
+                <form action="{{ route('contact-us.store') }}" class="contact-form" method="POST">
+                    @csrf
+                    <h3>Contact Us</h3>
+                    @if (session('contactStatus'))
+                    <div class="alert alert-success">
+                        {{ session('contactStatus') }}
+                    </div>
+                    @endif
                     <div class="row">
                         <div class="col-lg-6">
-                            <input type="text" placeholder="Your name">
+
+                            <input type="text" placeholder="Your name" name="name">
+                            <x-input-error :messages="$errors->get('name')" class="" />
                         </div>
                         <div class="col-lg-6">
-                            <input type="text" placeholder="Your email">
+                            <input type="text" placeholder="Your email" name="email">
+                            <x-input-error :messages="$errors->get('email')" class="" />
+
                         </div>
                         <div class="col-lg-12">
-                            <input type="text" placeholder="Subject">
-                            <textarea placeholder="Comment"></textarea>
+                            <input type="text" placeholder="Subject" name="subject">
+                            <x-input-error :messages="$errors->get('subject')" class="" />
+
+                            <textarea placeholder="Message" name="message"></textarea>
                         </div>
                     </div>
                     <button type="submit">Send Message</button>
